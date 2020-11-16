@@ -1,5 +1,8 @@
 package com.om.fileattach.controller;
 
+import com.om.fileattach.exception.AuthenticationException;
+import com.om.fileattach.exception.InvalidUsernamePasswordException;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,9 +13,18 @@ import reactor.core.publisher.Mono;
 @RestController
 public class HomeController {
 
-    @GetMapping({"", "/"})
+    @GetMapping({"","/"})
     public Mono<String> hello() {
-        log.debug("call hello method");
-        return Mono.just("Hello world.");
+        throw new AuthenticationException();
+    }
+
+    @GetMapping("/invalidUsernamePassword")
+    public Mono<String> invalidUsernamePassword() {
+        throw new InvalidUsernamePasswordException();
+    }
+
+    @GetMapping("/serverError")
+    public Mono<String> serverError() {
+        throw new RuntimeException();
     }
 }
