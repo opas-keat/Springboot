@@ -1,10 +1,10 @@
-package com.om.hello;
+package com.om.fileattach;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HelloReactiveApplicationTests {
+class FileattachApplicationTests {
 
 	@Test
 	void contextLoads() {
