@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.om.hello.exception.InvalidUsernamePasswordException;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,9 +18,9 @@ import reactor.core.publisher.Mono;
 public class HomeController {
 
     @GetMapping({"", "/"})
-    public Mono<String> hello() {
+    public Mono<String> hello(final Authentication authentication) {
         log.debug("call hello method");
-        return Mono.just("Hello world.");
+        return Mono.just("Hello => " + authentication.getName());
     }
 
     @GetMapping("/days")
