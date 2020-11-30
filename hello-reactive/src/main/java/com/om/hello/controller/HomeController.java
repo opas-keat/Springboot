@@ -3,8 +3,6 @@ package com.om.hello.controller;
 import java.util.Arrays;
 import java.util.List;
 
-import com.om.hello.exception.InvalidUsernamePasswordException;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +17,7 @@ public class HomeController {
     @GetMapping({"", "/"})
     public Mono<String> hello() {
         log.debug("call hello method");
-        return Mono.just("Hello => ");
+        return Mono.just("Hello world.");
     }
 
     @GetMapping("/days")
@@ -52,16 +50,6 @@ public class HomeController {
                 "November",
                 "December"
         ));
-    }
-
-    @GetMapping("/invalidUsernamePassword")
-    public Mono<String> invalidUsernamePassword() {
-        throw new InvalidUsernamePasswordException();
-    }
-
-    @GetMapping("/serverError")
-    public Mono<String> serverError() {
-        throw new RuntimeException();
     }
 
 }

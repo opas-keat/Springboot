@@ -1,5 +1,7 @@
 package com.om.hello.model;
 
+import java.util.UUID;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -7,12 +9,8 @@ import lombok.Data;
 @Builder
 public class User {
 
-    private String id;
+    private UUID id;
 
-    private String username;
-
-    private String password;
-
-    private String email;
+    private String name;
 
 }
