@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.om.hello.exception.InvalidUsernamePasswordException;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,13 +17,14 @@ import reactor.core.publisher.Mono;
 public class HomeController {
 
     @GetMapping({"", "/"})
-    public Mono<String> hello(final Authentication authentication) {
+    public Mono<String> hello() {
         log.debug("call hello method");
-        return Mono.just("Hello => " + authentication.getName());
+        return Mono.just("Hello world.");
     }
 
     @GetMapping("/days")
     public Flux<String> days() {
+        log.debug("call days method");
         return Flux.fromIterable(Arrays.asList(
                 "Sunday",
                 "Monday",
@@ -63,4 +63,5 @@ public class HomeController {
     public Mono<String> serverError() {
         throw new RuntimeException();
     }
+
 }

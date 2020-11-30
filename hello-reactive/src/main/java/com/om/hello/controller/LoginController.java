@@ -1,16 +1,29 @@
 package com.om.hello.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.om.hello.model.LoginRequest;
+import com.om.hello.validator.ManualValidator;
 
-import reactor.core.publisher.Mono;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RestController
+@RequiredArgsConstructor
 public class LoginController {
-    
-    @GetMapping("/login")
-    public Mono<String> login(){
-        return Mono.just("custom-login");
+
+    private final ManualValidator manualValidator;
+
+    @PostMapping("/login")
+    public void login(@RequestBody LoginRequest req) {
+        manualValidator.validate(req);
+        
+        log.debug("username => {}", req.getUsername());
+        log.debug("password => {}", req.getPassword());
     }
+
     
 }
