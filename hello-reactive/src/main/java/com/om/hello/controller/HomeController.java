@@ -19,7 +19,7 @@ public class HomeController {
     @GetMapping({"", "/"})
     public Mono<String> hello() {
         log.debug("call hello method");
-        return Mono.just("Hello world.");
+        return Mono.just("Hello => ");
     }
 
     @GetMapping("/days")
