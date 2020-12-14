@@ -22,22 +22,30 @@ public class SecurityConfig {
 
     //TODO
     //Move to application.properties
-    private final String AUTH_TOKEN_SECRET_KEY = "<YOUR_KEY>";
+    private final String AUTH_TOKEN_SECRET_KEY = "4244467890218023942835864651981516513207895156132164643213169699";
 
-    private final int AUTH_TOKEN_EXPIRES_MINUTES = 60 * 10; //10 Hr
+    private final int AUTH_TOKEN_EXPIRES_MINUTES = 60 * 1; //10 Hr
+
+//     private final String[] PUBLIC_ACCESS_PATHS = new String[]{
+//             "/webjars/springfox-swagger-ui/**",
+//             "/swagger-ui.html",
+//             "/v2/api-docs",
+//             "/v2/api-docs/_",
+//             "/swagger-resources",
+//             "/swagger-resources/**",
+//             "/favicon.ico",
+//             "/assets/**",
+//             "/public/**",
+//             "/auth/**",
+//             "/"
+//     };
 
     private final String[] PUBLIC_ACCESS_PATHS = new String[]{
-            "/webjars/springfox-swagger-ui/**",
-            "/swagger-ui.html",
-            "/v2/api-docs",
-            "/v2/api-docs/_",
-            "/swagger-resources",
-            "/swagger-resources/**",
-            "/favicon.ico",
-            "/assets/**",
-            "/public/**",
-            "/auth/**",
-            "/"
+        "/webjars/**",
+        "/swagger-ui.html/**",
+        "/v3/api-docs/**",
+        "/login",
+        "/days"
     };
 
     @Bean
